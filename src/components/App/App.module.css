@@ -1,20 +1,5 @@
 .App {
-}
-
-.logo {
-  font-family: monospace;
-}
-
-.logoCursor {
-  animation: blink 2s infinite step-end;
-  font-size: 0.5em;
-}
-
-@keyframes blink {
-  0% {
-    color: black;
-  }
-  50% {
-    color: transparent;
-  }
+  background: var(--primary-background);
+  width: 100vw;
+  height: 100vh;
 }

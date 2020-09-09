@@ -1,0 +1,24 @@
+.Header {
+  background: var(--secondary-background);
+  padding: 0.5rem 1rem;
+  height: var(--header-height);
+}
+
+.logo {
+  font-family: monospace;
+  color: var(--text-color);
+}
+
+.logoCursor {
+  animation: blink 2s infinite step-end;
+  font-size: 0.5em;
+}
+
+@keyframes blink {
+  0% {
+    color: inherit;
+  }
+  50% {
+    color: transparent;
+  }
+}

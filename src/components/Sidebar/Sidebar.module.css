@@ -1,0 +1,14 @@
+.Sidebar {
+  width: var(--sidebar-width);
+  height: calc(100vh - var(--header-height));
+  position: fixed;
+  top: var(--header-height);
+  z-index: 1;
+  background: var(--secondary-background);
+  color: var(--text-color);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  font-size: 1.1rem;
+  padding-top: 2rem;
+}

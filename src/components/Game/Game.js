@@ -6,7 +6,7 @@ const Game = () => {
   const [letter, setLetter] = useState();
   const [score, setScore] = useState(0);
   const [timer, setTimer] = useState(null);
-  const [stopTime, setStopTime] = useState(null);
+  const [timeLeft, setTimeLeft] = useState();
   const letterRef = useRef(null);
 
   const start = () => {
@@ -32,9 +32,8 @@ const Game = () => {
 
   const resetTimer = () => {
     clearTimeout(timer);
-    const newTime = 5000 / (score + 1);
+    const newTime = 5000 / (score / 10 + 1);
     setTimer(setTimeout(stop, newTime));
-    setStopTime(Date() + new Date(newTime));
   };
 
   const keyDown = (e) => {
@@ -47,23 +46,16 @@ const Game = () => {
 
   return (
     <section onKeyDown={keyDown} className={css.Game}>
+      {score > 0 && <p className={css.score}>{score}</p>}
       {playing ? (
         <>
-          <p tabIndex={0} ref={letterRef}>
+          <p tabIndex={0} ref={letterRef} className={css.letter}>
             {letter}
           </p>
-          <div
-            style={{
-              height: "20px",
-              width: stopTime - Date(),
-              background: "green",
-            }}
-          ></div>
         </>
       ) : (
         <button onClick={start}>play</button>
       )}
-      {score > 0 && <p>{score}</p>}
     </section>
   );
 };

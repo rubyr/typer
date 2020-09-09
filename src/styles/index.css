@@ -4,3 +4,11 @@
   box-sizing: border-box;
   font-family: sans-serif;
 }
+
+:root {
+  --header-height: 3rem;
+  --sidebar-width: clamp(10rem, 25vw, 15rem);
+  --primary-background: #222228;
+  --secondary-background: #333337;
+  --text-color: white;
+}
