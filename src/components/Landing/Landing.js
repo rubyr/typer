@@ -1,5 +1,7 @@
 import React from "react";
 import css from "./Landing.module.css";
+import github from "../../images/gh.png";
+import twitter from "../../images/tw.png";
 
 const Landing = () => {
   return (
@@ -18,8 +20,21 @@ const Landing = () => {
         <br />
         This app was built using React.
       </p>
-      <div>
-        <p>This app was made</p>
+      <div className={css.links}>
+        <a
+          href="https://github.com/rubyr/typer"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          <img src={github} alt="Github"></img>
+        </a>
+        <a
+          href="https://www.twitter.com/rubyr_js"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          <img src={twitter} alt="Twitter"></img>
+        </a>
       </div>
     </div>
   );

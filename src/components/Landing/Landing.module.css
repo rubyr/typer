@@ -1,5 +1,5 @@
 .Landing {
-  margin: 2rem 0 1rem;
+  margin: 2rem 0 0.5rem;
   font-size: 1rem;
   width: 90%;
   display: flex;
@@ -10,6 +10,11 @@
 
 .Landing br {
   margin-bottom: 1rem;
+}
+
+.links img {
+  height: 1.5rem;
+  margin-right: 0.75rem;
 }
 
 code {

@@ -10,6 +10,7 @@ function App() {
     const newList = [...scores, newScore + 1].sort((a, b) => b - a);
     if (newList.length > 5) setScores(newList.slice(0, 5));
     else setScores(newList);
+    return newList.includes(newScore);
   };
   return (
     <div className={css.App}>
