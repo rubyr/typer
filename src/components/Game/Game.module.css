@@ -6,20 +6,19 @@
   align-items: center;
   color: var(--text-color);
   padding-top: 2rem;
+  position: relative;
 }
 
 .Game > button {
   padding: 1rem;
-  z-index: 1;
 }
 
 .letter {
   font-size: 8rem;
-  z-index: 1;
 }
 
 .score {
-  position: absolute;
+  position: fixed;
   top: var(--header-height);
   margin: 0 auto;
   line-height: calc(100vh - var(--header-height));

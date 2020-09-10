@@ -1,25 +1,29 @@
 import React, { useState, useRef } from "react";
 import css from "./Game.module.css";
+import Clock from "../Clock/Clock";
 
 const Game = () => {
   const [playing, setPlaying] = useState(false);
   const [letter, setLetter] = useState();
   const [score, setScore] = useState(0);
   const [timer, setTimer] = useState(null);
-  const [timeLeft, setTimeLeft] = useState();
+  const [endTime, setEndTime] = useState();
+  const [hardMode, setHardMode] = useState(false);
   const letterRef = useRef(null);
 
   const start = () => {
     setPlaying(true);
-    setTimeout(() => letterRef.current.focus());
+    setTimeout(() => letterRef.current.focus()); // give the game keyboard focus
     setScore(0);
     generateNewLetter();
-    setTimer(setTimeout(stop, 5000));
+    resetTimer();
   };
 
   const stop = () => {
     setPlaying(false);
     setLetter();
+    clearTimeout(timer);
+    setTimer(null);
   };
 
   const generateNewLetter = () => {
@@ -34,6 +38,7 @@ const Game = () => {
     clearTimeout(timer);
     const newTime = 5000 / (score / 10 + 1);
     setTimer(setTimeout(stop, newTime));
+    setEndTime(Date.now() + new Date(newTime).getTime());
   };
 
   const keyDown = (e) => {
@@ -41,6 +46,8 @@ const Game = () => {
       generateNewLetter();
       resetTimer();
       setScore(score + 1);
+    } else if (hardMode) {
+      stop();
     }
   };
 
@@ -52,9 +59,19 @@ const Game = () => {
           <p tabIndex={0} ref={letterRef} className={css.letter}>
             {letter}
           </p>
+          <Clock endTime={endTime} />
         </>
       ) : (
-        <button onClick={start}>play</button>
+        <>
+          <button onClick={start}>play</button>
+          <input
+            type="checkbox"
+            name="hardmode"
+            value={hardMode}
+            onClick={() => setHardMode(!hardMode)}
+          />
+          <label htmlFor="hardmode">hard mode</label>
+        </>
       )}
     </section>
   );
