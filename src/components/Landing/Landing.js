@@ -8,7 +8,7 @@ const Landing = () => {
     <div className={css.Landing}>
       <p>
         Welcome to <code>typer</code>! Typer is an app designed to test your
-        typing skills.
+        typing skills. It's kind of like whack-a-mole, but with your keyboard.
         <br />
         This app was made for the MintBean OpenHack: No Mouse competition. It
         was made in under 48 hours and was designed to be played solely with the
