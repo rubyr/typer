@@ -2,6 +2,8 @@
   background: var(--secondary-background);
   padding: 0.5rem 1rem;
   height: var(--header-height);
+  z-index: 1000;
+  position: relative;
 }
 
 .logo {

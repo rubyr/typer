@@ -11,10 +11,14 @@
 
 .Game > button {
   padding: 1rem;
+  position: relative;
+  z-index: 100;
 }
 
 .letter {
   font-size: 8rem;
+  position: relative;
+  z-index: 100;
 }
 
 .score {
@@ -30,4 +34,5 @@
   -moz-user-select: none;
   -ms-user-select: none;
   user-select: none;
+  z-index: 10;
 }
