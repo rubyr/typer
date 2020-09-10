@@ -2,6 +2,7 @@
 
 import React from "react";
 import css from "./Sidebar.module.css";
+import Landing from "../Landing/Landing";
 
 const Sidebar = ({ scores }) => {
   return (
@@ -17,6 +18,7 @@ const Sidebar = ({ scores }) => {
           </ul>
         </>
       )}
+      <Landing />
     </aside>
   );
 };
