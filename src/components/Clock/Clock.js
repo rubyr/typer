@@ -18,12 +18,16 @@ const Clock = ({ endTime, score }) => {
     };
   }, [endTime]);
 
+  const percent = height / (50 / (score / 10 + 1));
+
   return (
     <div
       className={css.Clock}
-      style={{ height: height / (50 / (score / 10 + 1)) + "%" }}
-    >
-    </div>
+      style={{
+        height: percent + "%",
+        background: `hsla(${percent}, 50%, 50%, 0.1)`,
+      }}
+    ></div>
   );
 };
 

@@ -13,6 +13,12 @@
   padding: 1rem;
   position: relative;
   z-index: 100;
+  background: none;
+  border: 2px solid var(--text-color);
+  border-radius: 0.25rem;
+  color: var(--text-color);
+  font-size: 1.25rem;
+  text-transform: capitalize;
 }
 
 .letter {
@@ -27,7 +33,7 @@
   margin: 0 auto;
   line-height: calc(100vh - var(--header-height));
   font-size: 30rem;
-  color: #00000022;
+  color: #00000044;
   -webkit-touch-callout: none;
   -webkit-user-select: none;
   -khtml-user-select: none;

@@ -8,6 +8,7 @@ const Game = ({ addScore }) => {
   const [score, setScore] = useState(0);
   const [timer, setTimer] = useState(null);
   const [endTime, setEndTime] = useState();
+  const [showReward, setShowReward] = useState(false);
   const letterRef = useRef(null);
 
   const start = () => {
@@ -23,7 +24,9 @@ const Game = ({ addScore }) => {
     setLetter();
     clearTimeout(timer);
     setTimer(null);
-    if (score > 0) addScore(score);
+    if (score > 0) {
+      setShowReward(addScore(score));
+    }
   };
 
   const generateNewLetter = () => {
@@ -62,6 +65,7 @@ const Game = ({ addScore }) => {
       ) : (
         <>
           <button onClick={start}>play</button>
+          {showReward && <p>Congratulations! You got a high score!</p>}
         </>
       )}
     </section>
