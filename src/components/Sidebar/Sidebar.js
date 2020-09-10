@@ -3,16 +3,20 @@
 import React from "react";
 import css from "./Sidebar.module.css";
 
-const Sidebar = () => {
+const Sidebar = ({ scores }) => {
   return (
     <aside className={css.Sidebar}>
-      <p>Top scores:</p>
+      {scores.length > 0 && (
+        <>
+          <p>Top scores:</p>
 
-      <ul>
-        {[35, 22, 17, 14, 12].map((score) => (
-          <li>{score}</li>
-        ))}
-      </ul>
+          <ul>
+            {scores.map((score, i) => (
+              <li key={i}>{score}</li>
+            ))}
+          </ul>
+        </>
+      )}
     </aside>
   );
 };

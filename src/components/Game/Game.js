@@ -2,7 +2,7 @@ import React, { useState, useRef } from "react";
 import css from "./Game.module.css";
 import Clock from "../Clock/Clock";
 
-const Game = () => {
+const Game = ({ addScore }) => {
   const [playing, setPlaying] = useState(false);
   const [letter, setLetter] = useState();
   const [score, setScore] = useState(0);
@@ -24,6 +24,7 @@ const Game = () => {
     setLetter();
     clearTimeout(timer);
     setTimer(null);
+    addScore(score);
   };
 
   const generateNewLetter = () => {
@@ -59,7 +60,7 @@ const Game = () => {
           <p tabIndex={0} ref={letterRef} className={css.letter}>
             {letter}
           </p>
-          <Clock endTime={endTime} />
+          <Clock endTime={endTime} score={score} />
         </>
       ) : (
         <>
