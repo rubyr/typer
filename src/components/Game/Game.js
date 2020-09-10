@@ -8,7 +8,6 @@ const Game = ({ addScore }) => {
   const [score, setScore] = useState(0);
   const [timer, setTimer] = useState(null);
   const [endTime, setEndTime] = useState();
-  const [hardMode, setHardMode] = useState(false);
   const letterRef = useRef(null);
 
   const start = () => {
@@ -24,7 +23,7 @@ const Game = ({ addScore }) => {
     setLetter();
     clearTimeout(timer);
     setTimer(null);
-    addScore(score);
+    if (score > 0) addScore(score);
   };
 
   const generateNewLetter = () => {
@@ -36,7 +35,7 @@ const Game = ({ addScore }) => {
   };
 
   const resetTimer = () => {
-    clearTimeout(timer);
+    if (timer) clearTimeout(timer);
     const newTime = 5000 / (score / 10 + 1);
     setTimer(setTimeout(stop, newTime));
     setEndTime(Date.now() + new Date(newTime).getTime());
@@ -47,8 +46,6 @@ const Game = ({ addScore }) => {
       generateNewLetter();
       resetTimer();
       setScore(score + 1);
-    } else if (hardMode) {
-      stop();
     }
   };
 
@@ -65,13 +62,6 @@ const Game = ({ addScore }) => {
       ) : (
         <>
           <button onClick={start}>play</button>
-          <input
-            type="checkbox"
-            name="hardmode"
-            value={hardMode}
-            onClick={() => setHardMode(!hardMode)}
-          />
-          <label htmlFor="hardmode">hard mode</label>
         </>
       )}
     </section>
